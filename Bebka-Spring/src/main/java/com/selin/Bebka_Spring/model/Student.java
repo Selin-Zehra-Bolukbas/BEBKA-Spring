@@ -22,7 +22,7 @@ import java.util.List;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
         private String name;
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Book> books = new ArrayList<>();
 
