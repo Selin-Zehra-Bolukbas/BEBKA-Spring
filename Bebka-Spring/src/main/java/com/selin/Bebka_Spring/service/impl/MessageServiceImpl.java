@@ -2,9 +2,10 @@ package com.selin.Bebka_Spring.service.impl;
 
 import com.selin.Bebka_Spring.model.MessagePrinter;
 import com.selin.Bebka_Spring.service.MessageService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MessageServiceImpl implements MessageService {
-
 
     private final MessagePrinter messagePrinter;
 

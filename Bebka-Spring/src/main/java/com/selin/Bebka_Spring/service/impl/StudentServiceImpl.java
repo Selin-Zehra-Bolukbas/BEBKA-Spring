@@ -5,9 +5,11 @@ import com.selin.Bebka_Spring.repository.StudentRepository;
 import com.selin.Bebka_Spring.service.StudentService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;

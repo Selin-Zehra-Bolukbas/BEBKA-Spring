@@ -3,9 +3,11 @@ package com.selin.Bebka_Spring.service.impl;
 import com.selin.Bebka_Spring.model.Employee;
 import com.selin.Bebka_Spring.repository.EmployeeRepository;
 import com.selin.Bebka_Spring.service.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
      private final EmployeeRepository employeeRepository;
