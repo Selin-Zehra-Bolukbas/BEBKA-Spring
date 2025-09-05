@@ -10,22 +10,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudentService implements StudentServiceImpl {
-    private StudentRepository studentRepository;
+public interface StudentService {
 
-    public StudentService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-    }
+    Student save(Student student);
+    List<Student> findAll();
+    Page<Student> getStudents(Pageable pageable);
 
-    public Student save(Student student) {
-        return studentRepository.save(student);
-    }
-
-    public List<Student> findAll() {
-        return studentRepository.findAll();
-    }
-
-    public Page<Student> getStudents(Pageable pageable) {
-        return studentRepository.findAll(pageable);
-    }
 }

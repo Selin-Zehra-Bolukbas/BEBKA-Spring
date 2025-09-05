@@ -6,17 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Service
-public class MessageService implements MessageServiceImpl {
+public interface MessageService {
 
-    private final MessagePrinter messagePrinter;
-
-    public MessageService(MessagePrinter messagePrinter) {
-        this.messagePrinter = messagePrinter;
-    }
-
-
-    public String printMessage() {
-      return  messagePrinter.printMessage();
-    }
+    String printMessage();
 
 }
