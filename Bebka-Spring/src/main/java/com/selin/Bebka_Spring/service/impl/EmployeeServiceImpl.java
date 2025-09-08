@@ -4,6 +4,8 @@ import com.selin.Bebka_Spring.model.Employee;
 import com.selin.Bebka_Spring.repository.EmployeeRepository;
 import com.selin.Bebka_Spring.service.EmployeeService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
           this.employeeRepository = employeeRepository;
      }
      @Override
+     @Transactional(propagation = Propagation.REQUIRES_NEW)
      public Employee save(Employee employee) {
           return employeeRepository.save(employee);
      }
@@ -28,6 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
           return employeeRepository.findById(Long.valueOf(id)).orElse(null);
      }
      @Override
+     @Transactional()
      public Employee update(Long id,Employee updatedEmployee) {
           return employeeRepository.findById(id)
                   .map(emp -> {
@@ -39,6 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                   .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
      }
      @Override
+     @Transactional
      public void delete(Long id) {
           employeeRepository.deleteById(id);
      }

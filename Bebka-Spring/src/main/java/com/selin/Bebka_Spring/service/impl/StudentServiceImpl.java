@@ -3,6 +3,8 @@ package com.selin.Bebka_Spring.service.impl;
 import com.selin.Bebka_Spring.model.Student;
 import com.selin.Bebka_Spring.repository.StudentRepository;
 import com.selin.Bebka_Spring.service.StudentService;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ public class StudentServiceImpl implements StudentService {
         this.studentRepository = studentRepository;
     }
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Student save(Student student) {
         return studentRepository.save(student);
     }
